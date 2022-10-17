@@ -49,8 +49,7 @@ const RegisterPage = () => {
                 <FormRow name="email" type="email" value={values.email} handleChange={handleChange} />
                 <FormRow name="password" type="password" value={values.password} handleChange={handleChange} />
 
-                <button type="submit" className="btn btn-m btn-prim mt-16" disabled={isLoading}>{isLoading ? "Loading..." : "Submit"}</button>
-                <button type="button" className="btn btn-m btn-light" disabled={isLoading}>{isLoading ? "Loading..." : "Demo App"}</button>            
+                <button type="submit" className="btn btn-m btn-prim mt-16" disabled={isLoading}>{isLoading ? "Loading..." : "Submit"}</button>            
 
                 {values.isMember ? 
                     <p>Not a member yet? <span onClick={toggleMember}>Register</span></p>
