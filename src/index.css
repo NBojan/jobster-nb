@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto+Condensed:wght@400;700&display=swap');
+
+:root {
+  --clr-primary-50: #eff6ff;
+  --clr-primary-1: #dbeafe;
+  --clr-primary-2: #bfdbfe;
+  --clr-primary-3: #93c5fd;
+  --clr-primary-4: #60a5fa;
+  --clr-primary-5: #3b82f6;
+  --clr-primary-6: #2563eb;
+  --clr-primary-7: #1d4ed8;
+  --clr-primary-8: #1e40af;
+  --clr-primary-9: #1e3a8a;
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-mainBack: #f1f5f8;
+  --clr-mainBack2: #f8f9fa;
+  --clr-darkmode1: #181818;
+  --clr-darkmode2: #282c35;
+  --clr-dark1: #15202B;
+  --clr-dark2: #192734;
+  --clr-dark3: #343a40;
+  --clr-warning: #ffc107;
+  --clr-info: #17a2b8;
+  --clr-gold: #c59d5f;
+  --clr-blue: #007bff;
+  --clr-red: #dc3545;
+  --clr-red-dark: #842029;
+  --clr-red-light: #f8d7da ;
+  --clr-green: #28a745;
+  --clr-green-dark: #0f5132;
+  --clr-green-light: #d1e7dd;
+  --clr-black: #222;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --headingFont: 'Roboto Condensed', Sans-Serif;
+  --bodyFont: 'Cabin', Sans-Serif;
+}
+
+/**/
+body {
+  background-color: var(--clr-mainBack);
+  color: var(--clr-grey-1);
+  font-family: var(--bodyFont);
+  line-height: 1.5;
+}
+button {
+  font-family: var(--bodyFont);;
+}
+.page {
+  min-height: 100vh;
+}
+.centerFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.btn-prim {
+	color: #fff;
+	background-color: var(--clr-primary-5);
+	border-color: var(--clr-primary-5);
+}
+.btn-prim:hover {
+	background-color: var(--clr-primary-7);
+	border-color: var(--clr-primary-7);
+}
+.btn-light {
+	color: var(--clr-primary-5);
+	background-color: var(--clr-primary-2);
+	border-color: var(--clr-primary-2);
+}
+.btn-light:hover {
+  color: var(--clr-primary-2);
+	background-color: var(--clr-primary-7);
+	border-color: var(--clr-primary-7);
+}
+.logo {
+  display: block;
+}
+.box-shadow {
+  transition: all .3s linear;
+  box-shadow: var(--light-shadow);
+}
+.box-shadow:hover {
+  box-shadow: var(--dark-shadow);
+}
+
+.containerBoot {
+  width: 90%;
+}
+.Toastify__toast {
+  text-transform: capitalize;
+}
+
+@media (min-width: 1200px){
+
+}
+@media (min-width: 992px){
+
+}
+@media (min-width: 768px) and (max-width: 991px){
+
+}
+@media (max-width: 767px){
+
+}
+@media (max-width: 575px){
+
+}
