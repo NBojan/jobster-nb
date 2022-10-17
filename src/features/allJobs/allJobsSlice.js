@@ -44,7 +44,8 @@ const allJobsSlice = createSlice({
         },
         changePage: (state, action) => {
             state.page = action.payload;
-        }
+        },
+        clearAllJobsSlice: () => initialState
     },
     extraReducers: {
         [getJobs.pending]: (state) => {
@@ -68,7 +69,6 @@ const allJobsSlice = createSlice({
             const {defaultStats, monthlyApplications} = action.payload;
             state.stats = defaultStats;
             state.monthlyApp = monthlyApplications;
-            console.log(defaultStats, monthlyApplications);
             state.isLoading = false;
         },
         [getStats.rejected]: (state, action) => {
@@ -78,5 +78,5 @@ const allJobsSlice = createSlice({
     }
 })
 
-export const { updateValues, clearFilters, setLoadingTrue, setLoadingFalse, changePage } = allJobsSlice.actions;
+export const { updateValues, clearFilters, setLoadingTrue, setLoadingFalse, changePage, clearAllJobsSlice } = allJobsSlice.actions;
 export default allJobsSlice.reducer;

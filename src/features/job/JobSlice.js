@@ -16,12 +16,12 @@ const initialState = {
     editId: null
 }
 
-export const addJob = createAsyncThunk("addJob/addJob", addJobThunk);
-export const deleteJob = createAsyncThunk("addJob/deleteJob", deleteJobThunk);
-export const editJob = createAsyncThunk("addJob/deleteJob", editJobThunk);
+export const addJob = createAsyncThunk("job/addJob", addJobThunk);
+export const deleteJob = createAsyncThunk("job/deleteJob", deleteJobThunk);
+export const editJob = createAsyncThunk("job/editJob", editJobThunk);
 
 const addJobSlice = createSlice({
-    name: "addJob",
+    name: "job",
     initialState,
     reducers: {
         updateValues: (state, action) => {

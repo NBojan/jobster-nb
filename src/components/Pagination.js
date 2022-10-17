@@ -22,7 +22,7 @@ const Pagination = () => {
         if(newPage < 1) newPage = numberOfPages;
         dispatch(changePage(newPage));
     }
-    console.log(page)
+
     return (  
         <Wrapper>
             <div className="buttons-container d-flex">

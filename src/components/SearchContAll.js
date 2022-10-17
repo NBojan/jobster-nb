@@ -9,6 +9,7 @@ const SearchContAll = () => {
     const dispatch = useDispatch();
 
     const handleChange = e => {
+        if(isLoading) return
         const name = e.target.name;
         const value = e.target.value;
         dispatch(updateValues({name, value}));
