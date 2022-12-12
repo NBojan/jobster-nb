@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FormSelect, FormRow } from "./index";
 import { clearFilters, updateValues } from "../features/allJobs/allJobsSlice";
@@ -10,16 +10,17 @@ const SearchContAll = () => {
     const { statusOptions, jobTypeOptions } = useSelector(store => store.job);
     const dispatch = useDispatch();
 
-    const handleSearch = e => {
+    const handleSearch = () => {
         let timeoutId;
         return (e) => {
             setLocalSearch(e.target.value);
             clearTimeout(timeoutId);
             timeoutId = setTimeout(() => {
                 dispatch(updateValues({name: "search", value: e.target.value }));
-            }, 1000);
+            }, 500);
         }
     }
+    const optimizedSearch = useMemo(() => handleSearch(), []);
 
     const handleChange = e => {
         if(isLoading) return
@@ -35,12 +36,15 @@ const SearchContAll = () => {
             <form className="box-shadow" onSubmit={handleSubmit}>
                 <h4 className="fw-400 capitalize mb-24">search form</h4>
                 <div className="inside-form">
-                    <FormRow type="text" name="search" value={localSearch} handleChange={handleSearch()} />
+                    <FormRow type="text" name="search" value={localSearch} handleChange={optimizedSearch} />
                     <FormSelect name="searchStatus" value={searchStatus} labelText="status" handleChange={handleChange} list={["all", ...statusOptions]} />
                     <FormSelect name="searchType" value={searchType} labelText="type" handleChange={handleChange} list={["all", ...jobTypeOptions]} />
                     <FormSelect name="sort" value={sort} handleChange={handleChange} list={sortOptions} />
                     <div className="btn-div">
-                        <button type="button" className="btn save-btn delete-btn" onClick={() => dispatch(clearFilters())} disabled={isLoading}>
+                        <button type="button" className="btn save-btn delete-btn" onClick={() => {
+                            setLocalSearch("");
+                            dispatch(clearFilters());
+                        }} disabled={isLoading}>
                             {isLoading ? "loading..." : "clear filters"}
                         </button>
                     </div>
