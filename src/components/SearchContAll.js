@@ -1,12 +1,25 @@
 import styled from "styled-components";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FormSelect, FormRow } from "./index";
 import { clearFilters, updateValues } from "../features/allJobs/allJobsSlice";
 
 const SearchContAll = () => {
+    const [localSearch, setLocalSearch] = useState("");
     const { search, searchStatus, searchType, sort, sortOptions, isLoading } = useSelector(store => store.allJobs);
     const { statusOptions, jobTypeOptions } = useSelector(store => store.job);
     const dispatch = useDispatch();
+
+    const handleSearch = e => {
+        let timeoutId;
+        return (e) => {
+            setLocalSearch(e.target.value);
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                dispatch(updateValues({name: "search", value: e.target.value }));
+            }, 1000);
+        }
+    }
 
     const handleChange = e => {
         if(isLoading) return
@@ -22,7 +35,7 @@ const SearchContAll = () => {
             <form className="box-shadow" onSubmit={handleSubmit}>
                 <h4 className="fw-400 capitalize mb-24">search form</h4>
                 <div className="inside-form">
-                    <FormRow type="text" name="search" value={search} handleChange={handleChange} />
+                    <FormRow type="text" name="search" value={localSearch} handleChange={handleSearch()} />
                     <FormSelect name="searchStatus" value={searchStatus} labelText="status" handleChange={handleChange} list={["all", ...statusOptions]} />
                     <FormSelect name="searchType" value={searchType} labelText="type" handleChange={handleChange} list={["all", ...jobTypeOptions]} />
                     <FormSelect name="sort" value={sort} handleChange={handleChange} list={sortOptions} />
